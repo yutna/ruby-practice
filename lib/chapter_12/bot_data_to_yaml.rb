@@ -2,7 +2,7 @@ require "yaml"
 
 bot_data = {
   presubs: [%w[dont don't], %w[youre you're], %w[love like]],
-  response: {
+  responses: {
     :default => ["I don't understand.", "What?", "Huh?"],
     :greeting => ["Hi, I'm [name]. Want to chat?"],
     :farewell => ["Good bye!"],
@@ -11,11 +11,10 @@ bot_data = {
   }
 }
 
-puts bot_data.to_yaml
-
 BOT_DATA_PATH =
   File.expand_path(
-    File.join(Dir.pwd, "lib", "chapter_12", ARGV.first || "bot_data.yaml")
+    File.join("lib", "chapter_12", ARGV.first || "bot_data.yaml")
   )
 
+File.delete(BOT_DATA_PATH) if File.exist?(BOT_DATA_PATH)
 File.open(BOT_DATA_PATH, "w") { |file| file.puts bot_data.to_yaml }
