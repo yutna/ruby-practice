@@ -10,12 +10,14 @@ GEM
     sequel (5.73.0)
       bigdecimal
     sqlite3 (1.6.7-arm64-darwin)
+    sqlite3 (1.6.7-x86_64-linux)
     syntax_tree (6.2.0)
       prettier_print (>= 1.2.0)
 
 PLATFORMS
   arm64-darwin-22
   arm64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   byebug (~> 11.1, >= 11.1.3)
