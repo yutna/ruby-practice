@@ -1,10 +1,10 @@
 require_relative "bot"
 
-bot = Bot.new(name: "Botty", data_file: "botty.bot")
+bot = Bot.new(name: "Fred", data_file: "fred.yaml")
 
 puts bot.greeting
 
-while input = gets and input.chomp != "goodbye"
+while input = gets and input.chomp != "end"
   puts ">> " + bot.response_to(input)
 end
 

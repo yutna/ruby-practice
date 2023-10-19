@@ -15,16 +15,17 @@ class Bot
   end
 
   def farewell
-    random_response :greeting
-  end
-
-  def greeting
     random_response :farewell
   end
 
+  def greeting
+    random_response :greeting
+  end
+
   def response_to(input)
-    prepared_input = preprocess(input).downcase
+    prepared_input = preprocess(input.downcase)
     sentence = best_sentence(prepared_input)
+    reversed_sentence = WordPlay.switch_pronouns(sentence)
     responses = possible_responses(sentence)
     responses[rand(responses.length)]
   end
@@ -57,14 +58,14 @@ class Bot
       # For each pattern, see if the supplied sentence contains
       # a match. Remove substitution symbols (*) before checking.
       # Push all responses to the reponses array.
-      if sentence.match('\b', pattern.gsub(/\*/, "") + "\b")
+      if sentence.match('\b' + pattern.gsub(/\*/, "") + '\b')
         # If the pattern contains substitution placeholders,
         # perform the substitutions
         if pattern.include?("*")
           responses << @data[:responses][pattern].collect do |phrase|
             # First, erase everything before the placeholder
             # leaving everything after it
-            matching_section = sentence.sub(/^.*#{patter}\s+/, "")
+            matching_section = sentence.sub(/^.*#{pattern}\s+/, "")
 
             # Then substitute the text after placeholder, with
             # the pronouns switched
