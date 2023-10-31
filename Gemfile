@@ -4,6 +4,7 @@ source "https://rubygems.org"
 
 gem "byebug", "~> 11.1", ">= 11.1.3"
 gem "cgiup", "~> 0.0.1"
+gem "chronic", "~> 0.10.2"
 gem "gserver", "~> 0.0.1"
 gem "MailchimpMarketing", "~> 3.0", ">= 3.0.80"
 gem "minitest", "~> 5.20"
