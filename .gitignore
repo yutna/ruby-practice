@@ -96,3 +96,6 @@ build-iPhoneSimulator/
 # Ruby practice
 /secrets/check_membership.rb
 /secrets/payment.rb
+
+# RubyMine IDE
+.idea
